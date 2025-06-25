@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | SecureLightHome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+    <body>
+        <header>
+          <div class="navbar">
+            <div class="logo">
+              <h1>SecureLightHome</h1>
+            </div>
+            <div class="nav-links">
+                <a href="admin_dashboard.html" class="active"><i class="fa-solid fa-house"></i> Acasă</a>
+                <a href="list_users.html"><i class="fa-solid fa-users"></i> Utilizatori</a>
+                <a href="list_rfid.html"><i class="fa-solid fa-id-card"></i> Carduri RFID neasociate</a>
+                 <a href="control_sistem.html"><i class="fa fa-cog" aria-hidden="true"></i> Control și monitorizare sistem</a>
+                <a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+              </div>
+          </div>
+        </header>
+<main>
+  <h2>Carduri RFID neasociate</h2><br></br>
+  <table id="rfidTable" border="1" cellpadding="8" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>RFID</th>
+        <th>Detectat la</th>
+        <th>Asociază utilizator</th>
+        <th>Acțiune</th>
+      </tr>
+    </thead>
+    <tbody id="rfidBody">
+    </tbody>
+  </table>
+  <script src="list_rfid.js"></script>
+  <footer>
+    <p>&copy; 2025 SecureLightHome. Toate drepturile rezervate.</p> 
+</footer>
+</main>
+</html>

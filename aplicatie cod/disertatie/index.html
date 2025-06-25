@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | SecureLightHome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>SecureLightHome</h1> 
+            </div>
+            <div class="nav-links">
+                <a href="index.html"><i class="fa-solid fa-house"></i> Acasă</a>
+                <a href="#" onclick="openLoginModal()"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Bine ai venit la SecureLightHome!</h2> 
+            <p>Simplifică-ți viața cu securitate și iluminat inteligent.</p> 
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature-item">
+                <h3>Securitate Avansată</h3>
+                <p>Autentificare dublă cu RFID și PIN pentru un control total al accesului.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Automatizare Iluminat</h3>
+                <p>Control automat al luminii în funcție de prezență unei persoane și nivelul de lumină ambientală.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Monitorizare în Timp Real</h3>
+                <p>Monitorizarea condițiilor de mediu, consumului energetic și activității utilizatorilor</p>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 SecureLightHome. Toate drepturile rezervate.</p> 
+    </footer>
+
+
+<div id="adminSetupModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeAdminModal()">&times;</span>
+      <h2>Creare Admin Inițial</h2>
+      <form method="POST" action="../config_admin.php">
+        <input type="email" name="email" placeholder="Email admin" required><br>
+        <input type="password" name="password" placeholder="Parolă admin" required><br>
+        <input type="password" name="confirm_password" id="confirmAdminPassword" placeholder="Confirmă parola" required><br>
+        <button type="submit">Creează Admin</button>
+      </form>
+    </div>
+  </div>
+
+<div id="loginModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeLoginModal()">&times;</span>
+    <h2>Autentificare</h2>
+    <form id="loginForm">
+      <input type="email" name="email" placeholder="Email" required><br>
+      <input type="password" name="password" placeholder="Parolă" required><br>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
+
+
+  <div id="adminPinModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2> Cont Admin Creat</h2>
+      <p>PIN-ul tău pentru funcții speciale este:</p>
+      <div id="adminPinDisplay" class="pin">----</div>
+      <p><strong>Salvează-l acum!</strong> Nu va mai fi afișat niciodată.</p>
+      <button onclick="closePinModal()">Închide</button>
+    </div>
+  </div>
+
+  <div id="setPinModal" class="modal" style="display: none;">
+    <div class="modal-content" >
+      <h2> Setează PIN-ul tău personal</h2>
+      <form id="setPinForm" method="POST">
+        <input type="number" name="pin_code" placeholder="PIN nou (4 cifre)" maxlength="4" oninput="this.value = this.value.slice(0, 4);" required pattern="\d{4}">
+        <button type="submit">Salvează PIN</button>
+      </form>
+    </div>
+  </div>
+
+<!-- Modal formular schimbare parola -->
+<div id="changePasswordFormModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeChangePasswordFormModal()">&times;</span>
+    <h2>Schimbă parola</h2>
+    <form id="changePasswordForm">
+      <input type="password" id="newPassword" placeholder="Parolă nouă" required minlength="6" />
+      <input type="password" id="confirmPassword" placeholder="Confirmă parola" required minlength="6" />
+      <button type="submit">Salvează</button>
+    </form>
+  </div>
+</div>
+
+<script src="index.js"></script>
+  
+</body>
+</html>

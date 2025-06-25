@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | SecureLightHome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+        <header>
+          <div class="navbar">
+            <div class="logo">
+              <h1>SecureLightHome</h1>
+            </div>
+            <div class="nav-links">
+                <a href="admin_dashboard.html" class="active"><i class="fa-solid fa-house"></i> Acasă</a>
+                <a href="list_users.html"><i class="fa-solid fa-users"></i> Utilizatori</a>
+                <a href="list_rfid.html"><i class="fa-solid fa-id-card"></i> Carduri RFID neasociate</a>
+                 <a href="control_sistem.html"><i class="fa fa-cog" aria-hidden="true"></i> Control și monitorizare sistem</a>
+                <a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+              </div>
+          </div>
+        </header>
+<main>
+<div style="text-align:center; margin-bottom: 20px;">
+  <button id="openModal" style="background-color: rgb(105, 134, 201); width: auto;">
+    <i class="fa-solid fa-user-plus"></i> Adaugă Cont Nou
+  </button>
+</div>
+
+
+  <div id="userContainer" class="user-grid"></div>
+
+    <!-- MODAL Adăugare Cont nou-->
+<div id="addUserModal" class="modal" style="display: none;">
+
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>  <i class="fa-solid fa-user-plus"></i> Adaugă Cont Nou</h2>
+        <form id="addUserForm" class="modal-form">
+          <div class="form-row">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-row">
+            <label for="password">Parolă:</label>
+            <input type="password" id="password" name="password" value="parola" readonly>
+          </div>
+
+          <div class="form-row">
+            <label for="pin_code">PIN:</label>
+            <input type="text" id="pin_code" name="pin_code" value="1234" readonly>
+          </div>
+
+          <input type="hidden" name="role" value="user">
+
+          <div class="form-buttons" style="text-align: center; margin-top: 20px;">
+            <button type="submit"style="background-color: rgb(105, 134, 201);">Adaugă</button>
+          </div>
+        </form>
+
+
+      </div>
+  </div>
+<!-- MODAL Editare Utilizator -->  
+<div id="editUserModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" id="closeEditModal">&times;</span>
+    <h2><i class="fa-solid fa-pen-to-square"></i> Editează Cont</h2>
+    
+    <form id="editUserForm" class="modal-form">
+      <input type="hidden" name="id" id="edit-id">
+
+      <div class="form-row">
+        <label for="edit-email">Email:</label>
+        <input type="text" name="email" id="edit-email" placeholder="Email" required>
+      </div>
+
+      <div class="form-row">
+        <label for="edit-rfid">Cod RFID:</label>
+        <input type="text" name="rfid_code" id="edit-rfid" placeholder="Cod RFID" readonly>
+      </div>
+
+      <div class="form-row">
+        <label for="edit-pin">PIN:</label>
+        <input type="text" name="pin_code" id="edit-pin" placeholder="Cod PIN" maxlength="4"   pattern="\d{4}" inputmode="numeric">
+      </div>
+
+      <div class="form-buttons" style="text-align: center; margin-top: 20px;">
+        <button type="submit" style="background-color: rgb(105, 134, 201);">Salvează</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</main>
+  <footer>
+    <p>&copy; 2025 SecureLightHome. Toate drepturile rezervate.</p> 
+</footer>
+  <script src="list_users.js"></script>
+  
+</body>
+</html>

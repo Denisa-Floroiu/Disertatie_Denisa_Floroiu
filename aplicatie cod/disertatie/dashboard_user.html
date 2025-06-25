@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | SecureLightHome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+        <header>
+          <div class="navbar">
+            <div class="logo">
+              <h1>SecureLightHome</h1>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard_user.html" class="active"><i class="fa-solid fa-house"></i>  Acasă</a>
+                 <a href="control_sistem.html"><i class="fa fa-cog" aria-hidden="true"></i> Control și monitorizare sistem</a>
+                <a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+              </div>
+          </div>
+        </header>
+<main>
+<div id="userEmailContainer" class="welcome-card"></div>
+
+<div id="userInfoContainer" class="user-info-card">
+</div>
+
+<div id="modalResetParola" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close" onclick="inchideModalReset()">&times;</span>
+    <h3> Schimbă parola</h3>
+    <input type="password" id="parolaVeche" placeholder="Parola veche"><br>
+    <input type="password" id="parolaNoua" placeholder="Parola nouă"><br>
+    <input type="password" id="parolaConfirmare" placeholder="Confirmă parola nouă"><br>
+    <button onclick="trimiteSchimbareParola()"> Confirmă</button>
+  </div>
+</div>
+<div id="modalResetPIN" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close" onclick="inchideModalResetPIN()">&times;</span>
+    <h3> Schimbă cod PIN</h3>
+    <input type="text" name="pin_code" id="edit-pin" placeholder="Cod PIN Nou" maxlength="4"   pattern="\d{4}" inputmode="numeric"> <br>
+    <button onclick="trimiteSchimbarePin()"> Confirmă</button>
+  </div>
+</div>
+</main>
+  <footer>
+    <p>&copy; 2025 SecureLightHome. Toate drepturile rezervate.</p> 
+</footer>
+<script>
+
+
+</script>
+  <script src="dashboard_user.js"></script>
+  
+</body>
+</html>

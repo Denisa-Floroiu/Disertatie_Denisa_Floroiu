@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | SecureLightHome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+
+
+</head>
+    <body>
+        <header>
+          <div class="navbar">
+            <div class="logo">
+              <h1>SecureLightHome</h1>
+            </div>
+            <div class="nav-links" id="navLinks"></div>
+          </div>
+        </header>
+
+<h1>Panou de Control </h1>
+
+ <!-- Container pentru carduri -->
+<div class="container-central">
+  
+  <!-- Card Ușă -->
+  <div class="cardcontrol">
+    <h2>
+        <img src="image/door.png" alt="Ușă" style="height: 24px; vertical-align: middle; margin-right: 8px;">
+        Control ușă
+    </h2>
+
+    <div id="statusUsa" class="status">Stare: verific...</div>
+    <div id="notificariUsa" class="notificari"></div>
+
+        <div class="button-group-inline">
+            <button id="btnDeschideUsa">
+                <img src="image/opened-door.png" alt="Deschide" style="height: 24px; vertical-align: middle;">
+                Deschide
+            </button>
+            <button id="btnInchideUsa">
+                <img src="image/door_closed.png" alt="Închide" style="height: 24px; vertical-align: middle;">
+                Închide
+            </button>
+
+        </div>
+    </div>
+
+  <!-- Card Lumină -->
+    <div class="cardcontrol">
+        <h2> 
+            <img src="image/light-bulb.png" alt="bec" style="height: 24px; vertical-align: middle; margin-right: 8px;">
+            Control Lumină
+        </h2>
+        <div id="statusLumina" class="status">Stare: verific...</div>
+        <div id="notificariLumina" class="notificari"></div>
+        <div class="button-group-inline">
+            <button id="btnAprindeLumina">
+                <img src="image/bec-aprins.png" alt="Aprinde" style="height: 24px; vertical-align: middle;">
+                Aprinde
+            </button>
+            <button id="btnStingeLumina">
+                <img src="image/bec-stins.png" alt="Stinge" style="height: 24px; vertical-align: middle;">
+                Stinge
+            </button>
+        </div>
+        
+    </div>
+   <!-- Card Mod de Funcționare -->
+<div class="cardcontrol card-mod-func" style="display: none; height: 185px;">
+  <h2>
+    Mod de funcționare
+  </h2>
+
+  <div id="modCurent" style="margin-bottom: 10px; font-weight: bold;">
+    Mod curent: verific...
+  </div>
+
+  <div class="button-group-inline">
+    <button onclick="setModAutomat()"> Mod Automat</button>
+    <button onclick="setModManual()"> Mod Manual</button>
+  </div>
+</div>
+ 
+
+        <!-- Card Mediu Ambiental (status curent) -->
+    <div class="cardcontrol" style="height: 185px;">
+    <h2>
+        <img src="image/humidity.png" alt="Ambient" style="height: 40px; vertical-align: middle; margin-right: 8px;">
+        Condiții ambientale
+    </h2>
+
+    <div>🌡️ Temperatura curentă: <span id="temperaturaCurenta">-</span> °C</div>
+    <div>💧 Umiditate curentă: <span id="umiditateCurenta">-</span> %</div>
+    <div>💡 Lumină: <span id="nivel_lumina">-</span> </div>
+    </div>
+
+
+    <!-- Card Raport consum curent -->
+<div class="cardcontrol">
+  <h2>
+    <img src="image/bulb.png" alt="Curent" style="height: 24px; vertical-align: middle; margin-right: 8px;">
+    Raport consum curent
+  </h2>
+
+  <div style="margin-bottom: 10px;">
+    <label for="start">De la:</label>
+    <input type="datetime-local" id="start">
+
+    <label for="end" style="margin-left: 10px;">Până la:</label>
+    <input type="datetime-local" id="end">
+
+    <button onclick="cauta()" style="margin-left: 10px; background-color:#456288;">🔍 Caută</button>
+  </div>
+
+  <div id="rezultat" style="font-size: 1.05em;"></div>
+</div>
+
+
+<!-- Modalul ascuns inițial -->
+<div id="raportModal" class="modal"  style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="inchideModal()">&times;</span>
+    <canvas id="graficConsum" width="700" height="500"></canvas>
+    <button onclick="exportaSesiuniCSV()" style="margin-top: 10px;"> Exportă în CSV</button>
+  </div>
+</div>
+
+
+
+
+</div>
+
+<!-- Scriptul de control -->
+<script src="control_sistem.js"></script>
+  <footer>
+    <p>&copy; 2025 SecureLightHome. Toate drepturile rezervate.</p> 
+</footer>
+
+</body>
+</html>

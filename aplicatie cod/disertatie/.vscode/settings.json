@@ -1,0 +1,30 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "maglev.proxy.rlwy.net",
+            "port": 35122,
+            "driver": "PostgreSQL",
+            "name": "RailwayDB",
+            "database": "railway",
+            "username": "postgres",
+            "password": "wvhNtFbXQYLbpcAlzBIqZzWJKLcCGcfd",
+            "connectionTimeout": 30
+        },
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": false
+                }
+            },
+            "previewLimit": 50,
+            "server": "db.twgploeecvvpflkyyuiu.supabase.co",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "username": "postgres",
+            "database": "postgres",
+            "name": "SupabaseDB",
+            "password": "eL6esIumg5C2k9XS"
+        }
+    ]
+}
